@@ -1,73 +1,58 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			charachters:[],
-			planets:[],
-			vehicles:[]
-			
+			charachters: [],
+			planets: [],
+			vehicles: [],
+
 		},
 		actions: {
 
-			getCharacters: async ()=>{
+			getCharacters: async () => {
 
 				const baseUrl = 'https://www.swapi.tech/api/people/';
-				let payload =[];
-				for (let i=1;i<11;i++){
-					const url = baseUrl+i;
-					const response = await fetch(url);
-					if(!response.ok){
-						console.log(response.status, response.statusText);
-						return response.statusText;
-					};
-					const data = await response.json();
-					console.log(data)
-					payload.push(data);
-
-				}
-				setStore({charachters:payload});
-					console.log(store.charachters)
+				const response = await fetch(baseUrl);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data);
+				const results = data.results;
+				console.log(results);
+				setStore({ charachters: results });
 			},
 
-			getPlanets: async ()=>{
+			getPlanets: async () => {
 
 				const baseUrl = 'https://www.swapi.tech/api/planets/';
-				let payload =[];
-
-				for (let i=1;i<11;i++){
-					const url = baseUrl+i;
-					const response = await fetch(url);
-					if(!response.ok){
-						console.log(response.status, response.statusText);
-						return response.statusText;
-					};
-					const data = await response.json();
-					console.log(data)
-					payload.push(data)
-
-				}
-				setStore({planets:payload});
-				console.log(store.planets)
+				const response = await fetch(baseUrl);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data)
+				const results = data.results;
+				console.log(results);
+				setStore({ planets: results });
 			},
 
-			getVehicles: async ()=>{
+			getVehicles: async () => {
 
 				const baseUrl = 'https://www.swapi.tech/api/vehicles/';
-				let payload=[];
-				for (let i=1;i<11;i++){
-					const url = baseUrl+i;
-					const response = await fetch(url);
-					if(!response.ok){
-						console.log(response.status, response.statusText);
-						return response.statusText;
-					};
-					const data = await response.json();
-					console.log(data);
-					payload.push(data);
-				}
-				setStore({vehicles:payload});
-					console.log(store.vehicles);
+				const response = await fetch(baseUrl);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data)
+				const results = data.results;
+				console.log(results);
+				setStore({ vehicles: results });
 			},
-			
+
 		}
 	};
 };

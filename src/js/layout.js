@@ -6,10 +6,10 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { Favorites } from './views/Favorites.jsx';
-import { CharacterDetails } from './views/CharacterDetails.jsx';
-import { PlanetDetails } from './views/PlanetDetails.jsx';
-import { VehicleDetails } from './views/VehicleDetails.jsx';
+import Favorites from './views/Favorites.jsx';
+import CharacterDetails from './views/CharacterDetails.jsx';
+import PlanetDetails from './views/PlanetDetails.jsx';
+import VehicleDetails from './views/VehicleDetails.jsx';
 
 //create your first component
 const Layout = () => {
@@ -20,16 +20,16 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-					<Navbar />
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path='/favorites' element={<Favorites />} />
-						<Route path='/character/:id'element={<CharacterDetails />} />
-						<Route path='/planet/:id' element={<PlanetDetails />} />
-						<Route path='/vehicle/:id' element={<VehicleDetails />} />
-						<Route path="*" element={<h1>Not found!</h1>} />
-					</Routes>
-					<Footer />
+				<Navbar />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path='/favorites' element={<Favorites />} />
+					<Route path='/character/:id' element={<CharacterDetails />} />
+					<Route path='/planet/:id' element={<PlanetDetails />} />
+					<Route path='/vehicle/:id' element={<VehicleDetails />} />
+					<Route path="*" element={<h1>Not found!</h1>} />
+				</Routes>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);
