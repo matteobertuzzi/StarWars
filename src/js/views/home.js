@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -28,7 +29,7 @@ export const Home = () => {
 							<div className="card-body">
 								<h5 className="card-title">{char.name}</h5>
 								<p className="card-text">{char.uid}</p>
-								<a href="#" className="btn btn-primary">Details</a>
+								<Link className='btn btn-primary' to={'/character/' + char.uid}>Details</Link>
 							</div>
 						</div>
 					)
