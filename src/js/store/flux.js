@@ -3,8 +3,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			charachters: [],
 			character: {},
+			charDetails: {},
 			planets: [],
+			planet: {},
+			planetInfo: {},
 			vehicles: [],
+			vehicle: {},
+			vehicleInfo: {}
 
 		},
 		actions: {
@@ -67,6 +72,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const results = data.result;
 				console.log('infoDetail ', results);
 				setStore({ character: results });
+				setStore({ charDetails: results.properties })
+			},
+
+			getPlanetInfo: async (id) => {
+				const baseUrl = 'https://www.swapi.tech/api/planets/';
+				const url = baseUrl + id;
+				const response = await fetch(url);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data);
+				const results = data.result;
+				console.log('infoDetail ', results);
+				setStore({ planet: results });
+				setStore({ planetInfo: results.properties });
+			},
+
+			getVehicleInfo: async (id) => {
+				const baseUrl = 'https://www.swapi.tech/api/vehicles/';
+				const url = baseUrl + id;
+				const response = await fetch(url);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data);
+				const results = data.result;
+				console.log('infoDetail ', results);
+				setStore({ vehicle: results });
+				setStore({ vehicleInfo: results.properties });
 			}
 
 		}

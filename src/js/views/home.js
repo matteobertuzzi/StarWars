@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 	const charachters = store.charachters;
-	const char1 = charachters.slice(0, 3);
-	const char2 = charachters.slice(3, 6);
-	const char3 = charachters.slice(6, 9);
-	console.log(char1, char2, char3)
-
 	const planets = store.planets;
 	const vehicles = store.vehicles;
+	const placeholderImg = 'https://starwars-visualguide.com/assets/img/placeholder.jpg';
+
+	function errorImg(e) {
+		e.target.src = placeholderImg;
+	}
 
 
 	return (
@@ -25,7 +25,7 @@ export const Home = () => {
 				{charachters.map((char) => {
 					return (
 						<div className="card m-2" style={{ width: '18rem' }}>
-							<img className="card-img-top" src="..." alt="Card image cap" />
+							<img className="card-img-top" src={'https://starwars-visualguide.com/assets/img/characters/' + char.uid + '.jpg'} alt="Card image cap" onError={errorImg} />
 							<div className="card-body">
 								<h5 className="card-title">{char.name}</h5>
 								<p className="card-text">{char.uid}</p>
@@ -40,11 +40,11 @@ export const Home = () => {
 				{planets.map((plan) => {
 					return (
 						<div className="card m-2" style={{ width: '18rem' }}>
-							<img className="card-img-top" src="..." alt="Card image cap" />
+							<img className="card-img-top" src={'https://starwars-visualguide.com/assets/img/planets/' + plan.uid + '.jpg'} alt="Card image cap" onError={errorImg} />
 							<div className="card-body">
 								<h5 className="card-title">{plan.name}</h5>
 								<p className="card-text">{plan.uid}</p>
-								<a href="#" className="btn btn-primary">Details</a>
+								<Link className='btn btn-primary' to={'/planet/' + plan.uid}>Details</Link>
 							</div>
 						</div>
 					)
@@ -55,11 +55,11 @@ export const Home = () => {
 				{vehicles.map((vehicle) => {
 					return (
 						<div className="card m-2" style={{ width: '18rem' }}>
-							<img className="card-img-top" src="..." alt="Card image cap" />
+							<img className="card-img-top" src={'https://starwars-visualguide.com/assets/img/vehicles/' + vehicle.uid + '.jpg'} alt="Card image cap" onError={errorImg} />
 							<div className="card-body">
 								<h5 className="card-title">{vehicle.name}</h5>
 								<p className="card-text">{vehicle.uid}</p>
-								<a href="#" className="btn btn-primary">Details</a>
+								<Link className="btn btn-primary" to={'/vehicle/' + vehicle.uid}>Details</Link>
 							</div>
 						</div>
 					)
