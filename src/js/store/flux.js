@@ -1,43 +1,112 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			charachters: [],
+			character: {},
+			charDetails: {},
+			planets: [],
+			planet: {},
+			planetInfo: {},
+			vehicles: [],
+			vehicle: {},
+			vehicleInfo: {}
+
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			getCharacters: async () => {
 
-				//reset the global store
-				setStore({ demo: demo });
+				const baseUrl = 'https://www.swapi.tech/api/people/';
+				const response = await fetch(baseUrl);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data);
+				const results = data.results;
+				console.log(results);
+				setStore({ charachters: results });
+			},
+
+			getPlanets: async () => {
+
+				const baseUrl = 'https://www.swapi.tech/api/planets/';
+				const response = await fetch(baseUrl);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data)
+				const results = data.results;
+				console.log(results);
+				setStore({ planets: results });
+			},
+
+			getVehicles: async () => {
+
+				const baseUrl = 'https://www.swapi.tech/api/vehicles/';
+				const response = await fetch(baseUrl);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data)
+				const results = data.results;
+				console.log(results);
+				setStore({ vehicles: results });
+			},
+
+			getCharacterInfo: async (id) => {
+				const baseUrl = 'https://www.swapi.tech/api/people/';
+				const url = baseUrl + id;
+				const response = await fetch(url);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data);
+				const results = data.result;
+				console.log('infoDetail ', results);
+				setStore({ character: results });
+				setStore({ charDetails: results.properties })
+			},
+
+			getPlanetInfo: async (id) => {
+				const baseUrl = 'https://www.swapi.tech/api/planets/';
+				const url = baseUrl + id;
+				const response = await fetch(url);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data);
+				const results = data.result;
+				console.log('infoDetail ', results);
+				setStore({ planet: results });
+				setStore({ planetInfo: results.properties });
+			},
+
+			getVehicleInfo: async (id) => {
+				const baseUrl = 'https://www.swapi.tech/api/vehicles/';
+				const url = baseUrl + id;
+				const response = await fetch(url);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data);
+				const results = data.result;
+				console.log('infoDetail ', results);
+				setStore({ vehicle: results });
+				setStore({ vehicleInfo: results.properties });
 			}
+
 		}
 	};
 };
