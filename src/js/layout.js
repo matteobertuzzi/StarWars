@@ -10,6 +10,9 @@ import Favorites from './views/Favorites.jsx';
 import CharacterDetails from './views/CharacterDetails.jsx';
 import PlanetDetails from './views/PlanetDetails.jsx';
 import VehicleDetails from './views/VehicleDetails.jsx';
+import Characters from './views/Characters.jsx';
+import Planets from './views/Planets.jsx';
+import Vehicles from './views/Vehicles.jsx'
 
 //create your first component
 const Layout = () => {
@@ -24,6 +27,9 @@ const Layout = () => {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path='/favorites' element={<Favorites />} />
+					<Route path='/characters' element={<Characters />} />
+					<Route path='/planets' element={<Planets />} />
+					<Route path='/vehicles' element={<Vehicles />} />
 					<Route path='/character/:id' element={<CharacterDetails />} />
 					<Route path='/planet/:id' element={<PlanetDetails />} />
 					<Route path='/vehicle/:id' element={<VehicleDetails />} />

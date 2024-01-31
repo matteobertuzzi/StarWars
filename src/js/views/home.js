@@ -20,6 +20,11 @@ export const Home = () => {
 			<div className='searchBar'>
 			// here goes search bar
 			</div>
+			<div className="link d-flex justify-content-center my-3">
+				<Link to='/characters' className="btn btn-primary mx-3">Charachters</Link>
+				<Link to='/planets' className="btn btn-primary mx-3">Planets</Link>
+				<Link to='/vehicles' className="btn btn-primary mx-3">Vehicles</Link>
+			</div>
 			<div className="row characters d-flex justify-content-center mt-5">
 				<h2>Charachters</h2>
 				{charachters.map((char) => {
