@@ -21,12 +21,11 @@ const Characters = () => {
         console.log(id);;
         const currentFav = store.favoriteCharacters;
         if (currentFav == id || currentFav.includes(id)) {
-            const newFav = [currentFav];
             return;
         }
         const newFav = [...currentFav, id];
         actions.setFavoriteChar(newFav)
-        console.log(id, newFav)
+        console.log('fav characters: ', newFav)
     }
 
 

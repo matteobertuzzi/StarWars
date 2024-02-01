@@ -114,12 +114,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favoriteCharacters: newFav });
 			},
 
-			setFavoritePlan: (id) => {
-				setStore(favoritePlanets.push(id))
+			setFavoritePlan: (newFav) => {
+				setStore({ favoritePlanets: newFav });
 			},
 
-			setFavoriteVeh: (id) => {
-				setStore(favoriteVehicles.push(id))
+			setFavoriteVeh: (newFav) => {
+				setStore({ favoriteVehicles: newFav });
 			},
 
 

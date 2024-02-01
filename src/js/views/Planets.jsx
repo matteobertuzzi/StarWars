@@ -12,6 +12,22 @@ const Planets = () => {
         e.target.src = placeholderImg;
     }
 
+    function addFavorite(e) {
+        const id = e.target.id;
+        e.target.className = 'fa-solid fa-heart';
+        setTimeout(() => {
+            e.target.className = 'fa-regular fa-heart';
+        }, 500);
+        console.log(id);;
+        const currentFav = store.favoritePlanets;
+        if (currentFav == id || currentFav.includes(id)) {
+            return;
+        }
+        const newFav = [...currentFav, id];
+        actions.setFavoritePlan(newFav)
+        console.log('fav planets: ', newFav)
+    }
+
 
     return (
         <div className="container-fluid">
@@ -27,7 +43,10 @@ const Planets = () => {
                             <div className="card-body">
                                 <h5 className="card-title">{plan.name}</h5>
                                 <p className="card-text">{plan.uid}</p>
-                                <Link className='btn btn-primary' to={'/planet/' + plan.uid}>Details</Link>
+                                <div className="d-flex justify-content-between">
+                                    <Link className='btn btn-primary' to={'/planet/' + plan.uid}>Details</Link>
+                                    <h4><i className="fa-regular fa-heart" id={plan.uid} onClick={addFavorite}></i></h4>
+                                </div>
                             </div>
                         </div>
                     )

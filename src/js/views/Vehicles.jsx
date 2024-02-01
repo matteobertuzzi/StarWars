@@ -12,6 +12,22 @@ const Vehicles = () => {
         e.target.src = placeholderImg;
     }
 
+    function addFavorite(e) {
+        const id = e.target.id;
+        e.target.className = 'fa-solid fa-heart';
+        setTimeout(() => {
+            e.target.className = 'fa-regular fa-heart';
+        }, 500);
+        console.log(id);;
+        const currentFav = store.favoriteVehicles;
+        if (currentFav == id || currentFav.includes(id)) {
+            return;
+        }
+        const newFav = [...currentFav, id];
+        actions.setFavoriteVeh(newFav)
+        console.log('fav vehicles: ', newFav)
+    }
+
 
     return (
         <div className="container-fluid">
@@ -27,7 +43,10 @@ const Vehicles = () => {
                             <div className="card-body">
                                 <h5 className="card-title">{vehicle.name}</h5>
                                 <p className="card-text">{vehicle.uid}</p>
-                                <Link className="btn btn-primary" to={'/vehicle/' + vehicle.uid}>Details</Link>
+                                <div className="d-flex justify-content-between">
+                                    <Link className='btn btn-primary' to={'/vehicle/' + vehicle.uid}>Details</Link>
+                                    <h4><i className="fa-regular fa-heart" id={vehicle.uid} onClick={addFavorite}></i></h4>
+                                </div>
                             </div>
                         </div>
                     )
