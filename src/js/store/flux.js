@@ -9,8 +9,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planetInfo: {},
 			vehicles: [],
 			vehicle: {},
-			vehicleInfo: {}
-
+			vehicleInfo: {},
+			favoriteCharacters: [],
+			favoritePlanets: [],
+			favoriteVehicles: [],
+			favNumber: ''
 		},
 		actions: {
 
@@ -105,9 +108,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log('infoDetail ', results);
 				setStore({ vehicle: results });
 				setStore({ vehicleInfo: results.properties });
-			}
+			},
 
-		}
+			setFavoriteChar: (newFav) => {
+				setStore({ favoriteCharacters: newFav });
+			},
+
+			setFavoritePlan: (newFav) => {
+				setStore({ favoritePlanets: newFav });
+			},
+
+			setFavoriteVeh: (newFav) => {
+				setStore({ favoriteVehicles: newFav });
+			},
+
+
+			getCharacterPages: async () => {
+
+				const baseUrl = 'https://www.swapi.tech/api/people?page=2&limit=10';
+				const response = await fetch(baseUrl);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data);
+				const results = data.results;
+				console.log(results);
+			},
+
+		},
 	};
 };
 
