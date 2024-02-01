@@ -16,6 +16,9 @@ export const Navbar = () => {
 			<Link to="/vehicles">
 				<span className="navbar-brand mb-0 h1">Vehicles</span>
 			</Link>
+			<Link to="/favorites">
+				<button className="btn btn-warning">Favorites</button>
+			</Link>
 		</nav>
 	);
 };

@@ -13,7 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favoriteCharacters: [],
 			favoritePlanets: [],
 			favoriteVehicles: [],
-
+			favNumber: ''
 		},
 		actions: {
 

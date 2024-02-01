@@ -45,7 +45,7 @@ const Planets = () => {
                                 <p className="card-text">{plan.uid}</p>
                                 <div className="d-flex justify-content-between">
                                     <Link className='btn btn-primary' to={'/planet/' + plan.uid}>Details</Link>
-                                    <h4><i className="fa-regular fa-heart" id={plan.uid} onClick={addFavorite}></i></h4>
+                                    <h4><i className="fa-regular fa-heart" id={plan.name} onClick={addFavorite}></i></h4>
                                 </div>
                             </div>
                         </div>
