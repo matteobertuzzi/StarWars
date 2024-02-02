@@ -18,18 +18,27 @@ function FavoriteButton() {
             const deletedEl = favoriteCharacters.splice(index, 1);
             console.log(favoriteCharacters);
             actions.removeFavoriteChar(favoriteCharacters);
+            const favCount = store.favoriteCount;
+            const newCount = favCount - 1;
+            actions.setCount(newCount);
         };
         if (favoritePlanets.includes(el)) {
             const index = favoritePlanets.indexOf('el');
             const deletedEl = favoritePlanets.splice(index, 1);
             console.log(favoritePlanets);
             actions.removeFavoritePlanet(favoritePlanets);
+            const favCount = store.favoriteCount;
+            const newCount = favCount - 1;
+            actions.setCount(newCount);
         };
         if (favoriteVehicles.includes(el)) {
             const index = favoriteVehicles.indexOf('el');
             const deletedEl = favoriteVehicles.splice(index, 1);
             console.log(favoriteVehicles);
-            actions.removeFavoriteVehicle(favoriteVehicles)
+            actions.removeFavoriteVehicle(favoriteVehicles);
+            const favCount = store.favoriteCount;
+            const newCount = favCount - 1;
+            actions.setCount(newCount);
         }
     }
 
