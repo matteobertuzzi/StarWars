@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import PaginationComponent from '../component/Pagination.jsx'
 
 const Characters = () => {
     const { store, actions } = useContext(Context);
@@ -55,8 +56,7 @@ const Characters = () => {
                     )
                 })}
             </div>
-            // here goes pagination
-
+            <PaginationComponent />
         </div >
     );
 

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import PaginationVehicles from "../component/PaginationVehicles.jsx";
 
 const Vehicles = () => {
     const { store, actions } = useContext(Context);
@@ -55,7 +56,7 @@ const Vehicles = () => {
                     )
                 })}
             </div>
-
+            <PaginationVehicles />
         </div >
     );
 

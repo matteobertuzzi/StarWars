@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import PaginationPlanets from '../component/PaginationPlanets.jsx';
 
 const Planets = () => {
     const { store, actions } = useContext(Context);
@@ -25,7 +26,7 @@ const Planets = () => {
         }
         const newFav = [...currentFav, id];
         const favCount = store.favoriteCount;
-        const newCount= favCount +1;
+        const newCount = favCount + 1;
         actions.setFavoritePlan(newFav);
         actions.setCount(newCount);
         console.log('fav planets: ', newFav);
@@ -55,6 +56,7 @@ const Planets = () => {
                     )
                 })}
             </div>
+            <PaginationPlanets />
         </div >
     );
 

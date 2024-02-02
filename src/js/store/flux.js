@@ -153,6 +153,51 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favoriteCount: count });
 			},
 
+			getNextCharacters: async (page) => {
+				const baseUrl = 'https://www.swapi.tech/api/people/?page=' + page + '&limit=10';
+				const response = await fetch(baseUrl);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data);
+				const results = data.results;
+				console.log(results);
+				setStore({ charachters: results });
+
+			},
+
+			getNextPlanets: async (page) => {
+				const baseUrl = 'https://www.swapi.tech/api/planets/?page=' + page + '&limit=10';
+				const response = await fetch(baseUrl);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data);
+				const results = data.results;
+				console.log(results);
+				setStore({ planets: results });
+
+			},
+
+			getNextVehicles: async (page) => {
+				const baseUrl = 'https://www.swapi.tech/api/vehicles/?page=' + page + '&limit=10';
+				const response = await fetch(baseUrl);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data);
+				const results = data.results;
+				console.log(results);
+				setStore({ vehicles: results });
+
+			}
+
 
 		},
 	};

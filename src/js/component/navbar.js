@@ -12,16 +12,18 @@ export const Navbar = () => {
 			<Link to="/">
 				<span className="navbar-brand mb-0 h1">Home</span>
 			</Link>
-			<Link to="/characters">
-				<span className="navbar-brand mb-0 h1">Charachters</span>
-			</Link>
-			<Link to="/planets">
-				<span className="navbar-brand mb-0 h1">Planets</span>
-			</Link>
-			<Link to="/vehicles">
-				<span className="navbar-brand mb-0 h1">Vehicles</span>
-			</Link>
-			<FavoriteButton />
+			<div className="d-flex justify-content-end">
+				<Link to="/characters">
+					<span className="navbar-brand mb-0 h3 mx-4">Charachters</span>
+				</Link>
+				<Link to="/planets">
+					<span className="navbar-brand mb-0 h3 mx-4">Planets</span>
+				</Link>
+				<Link to="/vehicles">
+					<span className="navbar-brand mb-0 h3 mx-4">Vehicles</span>
+				</Link>
+				<FavoriteButton />
+			</div>
 		</nav>
 	);
 };
