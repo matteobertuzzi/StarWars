@@ -6,7 +6,6 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import Favorites from './views/Favorites.jsx';
 import CharacterDetails from './views/CharacterDetails.jsx';
 import PlanetDetails from './views/PlanetDetails.jsx';
 import VehicleDetails from './views/VehicleDetails.jsx';
@@ -26,7 +25,6 @@ const Layout = () => {
 				<Navbar />
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path='/favorites' element={<Favorites />} />
 					<Route path='/characters' element={<Characters />} />
 					<Route path='/planets' element={<Planets />} />
 					<Route path='/vehicles' element={<Vehicles />} />

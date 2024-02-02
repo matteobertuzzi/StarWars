@@ -13,7 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favoriteCharacters: [],
 			favoritePlanets: [],
 			favoriteVehicles: [],
-			favNumber: ''
+			favoriteCount: 0,
 		},
 		actions: {
 
@@ -114,12 +114,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favoriteCharacters: newFav });
 			},
 
+			removeFavoriteChar: (newFav) => {
+				setStore({ favoriteCharacters: newFav })
+			},
+
 			setFavoritePlan: (newFav) => {
 				setStore({ favoritePlanets: newFav });
 			},
 
+			removeFavoritePlanet: (newFav) => {
+				setStore({ favoritePlanets: newFav })
+			},
+
 			setFavoriteVeh: (newFav) => {
 				setStore({ favoriteVehicles: newFav });
+			},
+
+			removeFavoriteVehicle: (newFav) => {
+				setStore({ favoriteVehicles: newFav })
 			},
 
 
@@ -136,6 +148,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const results = data.results;
 				console.log(results);
 			},
+
+			setCount: (count) => {
+				setStore({ favoriteCount: count });
+			},
+
 
 		},
 	};

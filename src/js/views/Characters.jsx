@@ -24,9 +24,12 @@ const Characters = () => {
             return;
         }
         const newFav = [...currentFav, id];
-        actions.setFavoriteChar(newFav)
+        const favCount = store.favoriteCount;
+        const newCount = favCount + 1;
+        actions.setFavoriteChar(newFav);
+        actions.setCount(newCount);
         console.log('fav characters: ', newFav)
-    }
+    };
 
 
     return (

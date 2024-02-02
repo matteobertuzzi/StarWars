@@ -24,9 +24,12 @@ const Vehicles = () => {
             return;
         }
         const newFav = [...currentFav, id];
-        actions.setFavoriteVeh(newFav)
-        console.log('fav vehicles: ', newFav)
-    }
+        const favCount = store.favoriteCount;
+        const newCount = favCount + 1;
+        actions.setFavoriteVeh(newFav);
+        actions.setCount(newCount);
+        console.log('fav vehicles: ', newFav);
+    };
 
 
     return (
