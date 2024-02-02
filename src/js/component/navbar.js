@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
+import FavoriteButton from '../views/FavoriteButton.jsx'
 
 export const Navbar = () => {
+
+	const { store, actions } = useContext(Context);
+
 	return (
 		<nav className="navbar navbar-dark bg-dark m-4">
 			<Link to="/">
@@ -16,9 +21,7 @@ export const Navbar = () => {
 			<Link to="/vehicles">
 				<span className="navbar-brand mb-0 h1">Vehicles</span>
 			</Link>
-			<Link to="/favorites">
-				<button className="btn btn-warning">Favorites</button>
-			</Link>
+			<FavoriteButton />
 		</nav>
 	);
 };

@@ -13,7 +13,7 @@ export const Home = () => {
 
 	function errorImg(e) {
 		e.target.src = placeholderImg;
-	}
+	};
 
 
 	return (

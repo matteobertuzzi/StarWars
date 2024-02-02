@@ -24,9 +24,12 @@ const Planets = () => {
             return;
         }
         const newFav = [...currentFav, id];
-        actions.setFavoritePlan(newFav)
-        console.log('fav planets: ', newFav)
-    }
+        const favCount = store.favoriteCount;
+        const newCount= favCount +1;
+        actions.setFavoritePlan(newFav);
+        actions.setCount(newCount);
+        console.log('fav planets: ', newFav);
+    };
 
 
     return (
