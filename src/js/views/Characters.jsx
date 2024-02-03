@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import PaginationComponent from '../component/Pagination.jsx'
+import PaginationComponent from '../component/Pagination.jsx';
+import SearchBar from "../component/SearchBar.jsx";
 
 const Characters = () => {
     const { store, actions } = useContext(Context);
@@ -34,9 +35,9 @@ const Characters = () => {
 
 
     return (
-        <div className="container-fluid">
-            <div className='searchBar'>
-			// here goes search bar
+        <div className="container-fluid ">
+            <div className='d-flex justify-content-center my-5'>
+                <SearchBar />
             </div>
             <div className="row characters d-flex justify-content-center mt-5">
                 <h2>Charachters</h2>

@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import HomeCarousel from '../component/Carousel.jsx'
+import HomeCarousel from '../component/Carousel.jsx';
+
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);

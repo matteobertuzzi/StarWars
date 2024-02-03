@@ -14,6 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favoritePlanets: [],
 			favoriteVehicles: [],
 			favoriteCount: 0,
+			searchResults: []
 		},
 		actions: {
 
@@ -196,11 +197,53 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(results);
 				setStore({ vehicles: results });
 
-			}
+			},
 
+			searchCharacter: async (input) => {
+				const baseUrl = 'https://www.swapi.tech/api/people/?name=';
+				const url = baseUrl + input;
+				const response = await fetch(url);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				}
+				const data = await response.json();
+				console.log(data);
+				const results = await data.result;
+				console.log(results);
+
+				let ids = [];
+				let names = [];
+
+				await results.forEach((res) => {
+					let id = res.uid;
+					ids.push(id);
+					let props = res.properties;
+					let name = props.name;
+					names.push(name);
+					console.log(ids, names);
+				});
+				console.log(ids, names);
+
+				const searchArray = [];
+
+				for (let i = 0; i < names.length; i++) {
+					let char = {
+						name: names[i],
+						id: ids[i]
+					}
+					searchArray.push(char);
+					console.log(searchArray);
+					setStore({ searchResults: searchArray })
+				}
+
+			}
 
 		},
 	};
 };
 
 export default getState;
+
+// use getStore().charachters;
+// use getActions().actions 

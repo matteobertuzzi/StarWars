@@ -55,7 +55,7 @@ function FavoriteButton() {
                 {favoriteCharacters.map((char) => {
                     return (
                         <div className='d-flex justify-content-between'>
-                            <Dropdown.Item href="#/action-1">{char}</Dropdown.Item>
+                            <Dropdown.Item href="#">{char}</Dropdown.Item>
                             <i className="fa-regular fa-trash-can mx-2" id={char} onClick={removeFav}></i>
                         </div>
                     )
@@ -63,7 +63,7 @@ function FavoriteButton() {
                 {favoritePlanets.map((plan) => {
                     return (
                         <div className='d-flex justify-content-between'>
-                            <Dropdown.Item href="#/action-1">{plan}</Dropdown.Item>
+                            <Dropdown.Item href="#">{plan}</Dropdown.Item>
                             <i className="fa-regular fa-trash-can mx-2" id={plan} onClick={removeFav}></i>
                         </div>
                     )
@@ -71,7 +71,7 @@ function FavoriteButton() {
                 {favoriteVehicles.map((vehicle) => {
                     return (
                         <div className='d-flex justify-content-between'>
-                            <Dropdown.Item href="#/action-1">{vehicle}</Dropdown.Item>
+                            <Dropdown.Item href="#">{vehicle}</Dropdown.Item>
                             <i className="fa-regular fa-trash-can mx-2" id={vehicle} onClick={removeFav}></i>
                         </div>
                     )
