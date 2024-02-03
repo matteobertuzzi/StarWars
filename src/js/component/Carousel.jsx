@@ -6,7 +6,7 @@ function HomeCarousel() {
     return (
         <Carousel>
             <Carousel.Item>
-                <img src='https://media.timeout.com/images/105863223/750/422/image.jpg' alt='characters' style={{ height: '65vh', borderStyle: 'solid', borderWidth: '5px', borderColor: 'white', borderRadius: '10px' }} />
+                <img src='https://media.timeout.com/images/105863223/750/422/image.jpg' alt='characters' style={{ width: '80vw', borderStyle: 'solid', borderWidth: '5px', borderColor: 'white', borderRadius: '10px' }} />
                 <Carousel.Caption>
                     <h3 style={{ color: 'white' }}>Characters</h3>
                     <Link to="/characters">
@@ -15,7 +15,7 @@ function HomeCarousel() {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img src='https://assetsio.reedpopcdn.com/Tatooine.jpg' alt='planets' style={{ height: '65vh', borderStyle: 'solid', borderWidth: '5px', borderColor: 'white', borderRadius: '10px' }} />
+                <img src='https://assetsio.reedpopcdn.com/Tatooine.jpg' alt='planets' style={{ width: '80vw', borderStyle: 'solid', borderWidth: '5px', borderColor: 'white', borderRadius: '10px' }} />
                 <Carousel.Caption>
                     <h3 style={{ color: 'white' }}>Planets</h3>
                     <Link to="/planets">
@@ -24,7 +24,7 @@ function HomeCarousel() {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img src='https://www.drivingline.com/s3/drivingline.prd/media/12935/dl-sw_10-01.jpg?quality=70&mode=pad&copymetadata=true&w=800' alt='vehicles' style={{ height: '65vh', borderStyle: 'solid', borderWidth: '5px', borderColor: 'white', borderRadius: '10px' }} />
+                <img src='https://www.drivingline.com/s3/drivingline.prd/media/12935/dl-sw_10-01.jpg?quality=70&mode=pad&copymetadata=true&w=800' alt='vehicles' style={{ width: '80vw', borderStyle: 'solid', borderWidth: '5px', borderColor: 'white', borderRadius: '10px' }} />
                 <Carousel.Caption>
                     <h3 style={{ color: 'white' }}>Vehicles</h3>
                     <Link to="/vehicles">

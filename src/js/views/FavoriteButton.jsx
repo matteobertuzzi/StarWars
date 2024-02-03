@@ -14,8 +14,9 @@ function FavoriteButton() {
     function removeFav(e) {
         const el = e.target.id;
         if (favoriteCharacters.includes(el)) {
-            const index = favoriteCharacters.indexOf('el');
+            const index = favoriteCharacters.indexOf(el);
             const deletedEl = favoriteCharacters.splice(index, 1);
+            console.log(index, deletedEl);
             console.log(favoriteCharacters);
             actions.removeFavoriteChar(favoriteCharacters);
             const favCount = store.favoriteCount;
@@ -23,7 +24,7 @@ function FavoriteButton() {
             actions.setCount(newCount);
         };
         if (favoritePlanets.includes(el)) {
-            const index = favoritePlanets.indexOf('el');
+            const index = favoritePlanets.indexOf(el);
             const deletedEl = favoritePlanets.splice(index, 1);
             console.log(favoritePlanets);
             actions.removeFavoritePlanet(favoritePlanets);
@@ -32,7 +33,7 @@ function FavoriteButton() {
             actions.setCount(newCount);
         };
         if (favoriteVehicles.includes(el)) {
-            const index = favoriteVehicles.indexOf('el');
+            const index = favoriteVehicles.indexOf(el);
             const deletedEl = favoriteVehicles.splice(index, 1);
             console.log(favoriteVehicles);
             actions.removeFavoriteVehicle(favoriteVehicles);
@@ -54,7 +55,7 @@ function FavoriteButton() {
                 {favoriteCharacters.map((char) => {
                     return (
                         <div className='d-flex justify-content-between'>
-                            <Dropdown.Item href="#/action-1">{char}</Dropdown.Item>
+                            <Dropdown.Item href="#">{char}</Dropdown.Item>
                             <i className="fa-regular fa-trash-can mx-2" id={char} onClick={removeFav}></i>
                         </div>
                     )
@@ -62,7 +63,7 @@ function FavoriteButton() {
                 {favoritePlanets.map((plan) => {
                     return (
                         <div className='d-flex justify-content-between'>
-                            <Dropdown.Item href="#/action-1">{plan}</Dropdown.Item>
+                            <Dropdown.Item href="#">{plan}</Dropdown.Item>
                             <i className="fa-regular fa-trash-can mx-2" id={plan} onClick={removeFav}></i>
                         </div>
                     )
@@ -70,7 +71,7 @@ function FavoriteButton() {
                 {favoriteVehicles.map((vehicle) => {
                     return (
                         <div className='d-flex justify-content-between'>
-                            <Dropdown.Item href="#/action-1">{vehicle}</Dropdown.Item>
+                            <Dropdown.Item href="#">{vehicle}</Dropdown.Item>
                             <i className="fa-regular fa-trash-can mx-2" id={vehicle} onClick={removeFav}></i>
                         </div>
                     )
