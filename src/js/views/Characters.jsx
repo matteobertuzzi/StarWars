@@ -36,11 +36,11 @@ const Characters = () => {
 
     return (
         <div className="container-fluid ">
-            <div className='d-flex justify-content-center my-5'>
+            <div className='d-flex flex-column align-items-center my-5'>
+                <h1 className="text-center my-3">Characters</h1>
                 <SearchBar />
             </div>
             <div className="row characters d-flex justify-content-center mt-5">
-                <h2>Charachters</h2>
                 {charachters.map((char) => {
                     return (
                         <div className="card m-4" style={{ width: '20rem' }}>
