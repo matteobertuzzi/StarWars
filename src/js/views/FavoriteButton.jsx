@@ -14,8 +14,9 @@ function FavoriteButton() {
     function removeFav(e) {
         const el = e.target.id;
         if (favoriteCharacters.includes(el)) {
-            const index = favoriteCharacters.indexOf('el');
+            const index = favoriteCharacters.indexOf(el);
             const deletedEl = favoriteCharacters.splice(index, 1);
+            console.log(index, deletedEl);
             console.log(favoriteCharacters);
             actions.removeFavoriteChar(favoriteCharacters);
             const favCount = store.favoriteCount;
@@ -23,7 +24,7 @@ function FavoriteButton() {
             actions.setCount(newCount);
         };
         if (favoritePlanets.includes(el)) {
-            const index = favoritePlanets.indexOf('el');
+            const index = favoritePlanets.indexOf(el);
             const deletedEl = favoritePlanets.splice(index, 1);
             console.log(favoritePlanets);
             actions.removeFavoritePlanet(favoritePlanets);
@@ -32,7 +33,7 @@ function FavoriteButton() {
             actions.setCount(newCount);
         };
         if (favoriteVehicles.includes(el)) {
-            const index = favoriteVehicles.indexOf('el');
+            const index = favoriteVehicles.indexOf(el);
             const deletedEl = favoriteVehicles.splice(index, 1);
             console.log(favoriteVehicles);
             actions.removeFavoriteVehicle(favoriteVehicles);
