@@ -1,29 +1,40 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import FavoriteButton from '../views/FavoriteButton.jsx'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-export const Navbar = () => {
-
+function NavbarMenu() {
 	const { store, actions } = useContext(Context);
+	const navigate = useNavigate();
 
 	return (
-		<nav className="navbar navbar-dark bg-dark m-4">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">Home</span>
-			</Link>
-			<div className="d-flex justify-content-end">
-				<Link to="/characters">
-					<span className="navbar-brand mb-0 h3 mx-4">Charachters</span>
-				</Link>
-				<Link to="/planets">
-					<span className="navbar-brand mb-0 h3 mx-4">Planets</span>
-				</Link>
-				<Link to="/vehicles">
-					<span className="navbar-brand mb-0 h3 mx-4">Vehicles</span>
-				</Link>
+		<Navbar expand="lg" className="bg-body-tertiary navbar">
+			<Container>
+				<Navbar.Brand onClick={() => navigate('/')}>Home</Navbar.Brand>
+				<Navbar.Toggle aria-controls="basic-navbar-nav" />
+				<Navbar.Collapse id="basic-navbar-nav">
+					<Nav className="me-auto">
+						<NavDropdown title="Categories" id="basic-nav-dropdown">
+							<NavDropdown.Item onClick={() => navigate('/characters')}>Charachters</NavDropdown.Item>
+							<NavDropdown.Item onClick={() => navigate('/planets')}>Planets</NavDropdown.Item>
+							<NavDropdown.Item onClick={() => navigate('/vehicles')}>Vehicles</NavDropdown.Item>
+							<NavDropdown.Divider />
+							<NavDropdown.Item onClick={() => navigate('/')}>
+								Home
+							</NavDropdown.Item>
+						</NavDropdown>
+					</Nav>
+				</Navbar.Collapse>
 				<FavoriteButton />
-			</div>
-		</nav>
+			</Container>
+		</Navbar>
 	);
-};
+}
+
+export default NavbarMenu;
+
+
