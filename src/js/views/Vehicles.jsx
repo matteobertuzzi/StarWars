@@ -36,11 +36,11 @@ const Vehicles = () => {
 
     return (
         <div className="container-fluid">
-            <div className='d-flex justify-content-center my-5'>
+            <div className='d-flex flex-column align-items-center my-5'>
+                <h1 className="text-center my-3">Vehicles</h1>
                 <SearchVehicles />
             </div>
             <div className="row vehicles d-flex justify-content-center mt-5">
-                <h2>Vehicles</h2>
                 {vehicles.map((vehicle) => {
                     return (
                         <div className="card m-2" style={{ width: '18rem' }}>

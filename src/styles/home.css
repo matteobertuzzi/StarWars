@@ -70,3 +70,19 @@
 .footerText a{
     color: white !important;
 }
+
+.detailImg{
+    margin: 20px;
+    border-radius: 20%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #ffc107;
+}
+
+.details{
+    margin-top: 20px;
+}
+
+.details h1, h2, h3 {
+    color: #ffc107 !important;
+}

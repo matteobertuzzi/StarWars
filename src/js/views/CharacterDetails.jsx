@@ -11,6 +11,11 @@ const CharacterDetails = () => {
 
   const params = useParams();
   const id = params.id;
+  const placeholderImg = 'https://starwars-visualguide.com/assets/img/placeholder.jpg';
+
+  function errorImg(e) {
+    e.target.src = placeholderImg;
+  }
 
   useEffect(() => {
     actions.getCharacterInfo(id);
@@ -19,21 +24,25 @@ const CharacterDetails = () => {
   return (
     <div className='container'>
       <div className='row'>
-        <div className='col-md-5'>
-          <img src={'https://starwars-visualguide.com/assets/img/characters/' + id + '.jpg'} className="img-fluid" alt="Responsive image" />
+        <div className='col-md-5 details'>
+          <img src={'https://starwars-visualguide.com/assets/img/characters/' + id + '.jpg'} className="detailImg img-fluid" alt="Responsive image" onError={errorImg} />
         </div>
-        <div className='col-md-7'>
-          <h3>{charDetails.name}</h3>
+        <div className='col-md-7 details'>
+          <h1>{charDetails.name}</h1>
           <p>{character.description}</p>
-          <h4>About</h4>
-          <p><b>Birth Year: </b>{charDetails.birth_year}</p>
-          <p><b>Gender: </b>{charDetails.gender}</p>
-          <h4>About</h4>
-          <p><b>Body Height: </b>{charDetails.height + ' cm'}</p>
-          <p><b>Body Mass: </b>{charDetails.mass}</p>
-          <p><b>Eye Color: </b>{charDetails.eye_color}</p>
-          <p><b>Hair Color: </b>{charDetails.hair_color}</p>
-          <p><b>Skin Color: </b>{charDetails.skin_color}</p>
+          <h2>About</h2>
+          <ul>
+            <li><b>Birth Year: </b>{charDetails.birth_year}</li>
+            <li><b>Gender: </b>{charDetails.gender}</li>
+          </ul>
+          <h2>About</h2>
+          <ul>
+            <li><b>Body Height: </b>{charDetails.height + ' cm'}</li>
+            <li><b>Body Mass: </b>{charDetails.mass}</li>
+            <li><b>Eye Color: </b>{charDetails.eye_color}</li>
+            <li><b>Hair Color: </b>{charDetails.hair_color}</li>
+            <li><b>Skin Color: </b>{charDetails.skin_color}</li>
+          </ul>
 
         </div>
       </div>

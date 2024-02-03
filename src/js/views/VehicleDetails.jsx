@@ -9,6 +9,11 @@ const VehicleDetails = () => {
   const { store, actions } = useContext(Context);
   const vehicle = store.vehicle;
   const vehicleInfo = store.vehicleInfo;
+  const placeholderImg = 'https://starwars-visualguide.com/assets/img/placeholder.jpg';
+
+  function errorImg(e) {
+    e.target.src = placeholderImg;
+  }
 
   useEffect(() => {
     actions.getVehicleInfo(id);
@@ -18,20 +23,24 @@ const VehicleDetails = () => {
     <div className='container'>
       <div className='row'>
         <div className='col-md-5'>
-          <img src={'https://starwars-visualguide.com/assets/img/vehicles/' + id + '.jpg'} className="img-fluid" alt="Responsive image" />
+          <img src={'https://starwars-visualguide.com/assets/img/vehicles/' + id + '.jpg'} className="detailImg img-fluid" alt="Responsive image" onError={errorImg} />
         </div>
-        <div className='col-md-7'>
-          <h3>{vehicleInfo.name}</h3>
+        <div className='col-md-7 details'>
+          <h1>{vehicleInfo.name}</h1>
           <p>{vehicle.description}</p>
-          <h4>Details</h4>
-          <p><b>Model </b>{vehicleInfo.model}</p>
-          <p><b>Manufacturer: </b>{vehicleInfo.manufacturer}</p>
-          <p><b>Vehicle Class: </b>{vehicleInfo.vehicle_class}</p>
-          <h4>Specs</h4>
-          <p><b>Length: </b>{vehicleInfo.length}</p>
-          <p><b>Max Atmosphering Speed: </b>{vehicleInfo.max_atmosphering_speed}</p>
-          <p><b>Passengers: </b>{vehicleInfo.surface_water}</p>
-          <p><b>Cargo Capacity: </b>{vehicleInfo.cargo_capacity}</p>
+          <h2>Details</h2>
+          <ul>
+            <li><b>Model </b>{vehicleInfo.model}</li>
+            <li><b>Manufacturer: </b>{vehicleInfo.manufacturer}</li>
+            <li><b>Vehicle Class: </b>{vehicleInfo.vehicle_class}</li>
+          </ul>
+          <h2>Specs</h2>
+          <ul>
+            <li><b>Length: </b>{vehicleInfo.length}</li>
+            <li><b>Max Atmosphering Speed: </b>{vehicleInfo.max_atmosphering_speed}</li>
+            <li><b>Passengers: </b>{vehicleInfo.surface_water}</li>
+            <li><b>Cargo Capacity: </b>{vehicleInfo.cargo_capacity}</li>
+          </ul>
         </div>
       </div>
     </div>

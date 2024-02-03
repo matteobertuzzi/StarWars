@@ -36,11 +36,11 @@ const Planets = () => {
 
     return (
         <div className="container-fluid">
-            <div className='d-flex justify-content-center my-5'>
+            <div className='d-flex flex-column align-items-center my-5'>
+                <h1 className="text-center my-3">Planets</h1>
                 <SearchPlanets />
             </div>
             <div className="row planets d-flex justify-content-center mt-5">
-                <h2>Planets</h2>
                 {planets.map((plan) => {
                     return (
                         <div className="card m-2" style={{ width: '18rem' }}>
