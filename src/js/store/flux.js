@@ -14,7 +14,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favoritePlanets: [],
 			favoriteVehicles: [],
 			favoriteCount: 0,
-			searchResults: []
+			peopleSearch: [],
+			planetSearch: [],
+			vehicleSearch: []
 		},
 		actions: {
 
@@ -234,7 +236,87 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					searchArray.push(char);
 					console.log(searchArray);
-					setStore({ searchResults: searchArray })
+					setStore({ peopleSearch: searchArray })
+				}
+
+			},
+
+			searchPlanets: async (input) => {
+				const baseUrl = 'https://www.swapi.tech/api/planets/?name=';
+				const url = baseUrl + input;
+				const response = await fetch(url);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				}
+				const data = await response.json();
+				console.log(data);
+				const results = await data.result;
+				console.log(results);
+
+				let ids = [];
+				let names = [];
+
+				await results.forEach((res) => {
+					let id = res.uid;
+					ids.push(id);
+					let props = res.properties;
+					let name = props.name;
+					names.push(name);
+					console.log(ids, names);
+				});
+				console.log(ids, names);
+
+				const searchArray = [];
+
+				for (let i = 0; i < names.length; i++) {
+					let plan = {
+						name: names[i],
+						id: ids[i]
+					}
+					searchArray.push(plan);
+					console.log(searchArray);
+					setStore({ planetSearch: searchArray })
+				}
+
+			},
+
+			searchVehicles: async (input) => {
+				const baseUrl = 'https://www.swapi.tech/api/planets/?name=';
+				const url = baseUrl + input;
+				const response = await fetch(url);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				}
+				const data = await response.json();
+				console.log(data);
+				const results = await data.result;
+				console.log(results);
+
+				let ids = [];
+				let names = [];
+
+				await results.forEach((res) => {
+					let id = res.uid;
+					ids.push(id);
+					let props = res.properties;
+					let name = props.name;
+					names.push(name);
+					console.log(ids, names);
+				});
+				console.log(ids, names);
+
+				const searchArray = [];
+
+				for (let i = 0; i < names.length; i++) {
+					let vehicle = {
+						name: names[i],
+						id: ids[i]
+					}
+					searchArray.push(vehicle);
+					console.log(searchArray);
+					setStore({ vehicleSearch: searchArray });
 				}
 
 			}

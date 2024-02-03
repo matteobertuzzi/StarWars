@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import SearchPlanets from "../component/SearchPlanets.jsx";
 import PaginationPlanets from '../component/PaginationPlanets.jsx';
 
 const Planets = () => {
@@ -35,8 +36,8 @@ const Planets = () => {
 
     return (
         <div className="container-fluid">
-            <div className='searchBar'>
-			// here goes search bar
+            <div className='d-flex justify-content-center my-5'>
+                <SearchPlanets />
             </div>
             <div className="row planets d-flex justify-content-center mt-5">
                 <h2>Planets</h2>
@@ -46,9 +47,8 @@ const Planets = () => {
                             <img className="card-img-top" src={'https://starwars-visualguide.com/assets/img/planets/' + plan.uid + '.jpg'} alt="Card image cap" onError={errorImg} />
                             <div className="card-body">
                                 <h5 className="card-title">{plan.name}</h5>
-                                <p className="card-text">{plan.uid}</p>
                                 <div className="d-flex justify-content-between">
-                                    <Link className='btn btn-primary' to={'/planet/' + plan.uid}>Details</Link>
+                                    <Link className='btn btn-primary cardbutton' to={'/planet/' + plan.uid}>Details</Link>
                                     <h4><i className="fa-regular fa-heart" id={plan.name} onClick={addFavorite}></i></h4>
                                 </div>
                             </div>

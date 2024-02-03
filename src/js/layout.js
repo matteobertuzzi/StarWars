@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./views/home";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+import NavbarMenu from "./component/navbar.js";
 import { Footer } from "./component/footer";
 import CharacterDetails from './views/CharacterDetails.jsx';
 import PlanetDetails from './views/PlanetDetails.jsx';
@@ -22,7 +22,7 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-				<Navbar />
+				<NavbarMenu />
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path='/characters' element={<Characters />} />

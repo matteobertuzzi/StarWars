@@ -6,29 +6,29 @@ function HomeCarousel() {
     return (
         <Carousel>
             <Carousel.Item>
-                <img src='https://media.timeout.com/images/105863223/750/422/image.jpg' alt='characters' style={{ width: '80vw', borderStyle: 'solid', borderWidth: '5px', borderColor: 'white', borderRadius: '10px' }} />
+                <img src='https://www.fortressofsolitude.co.za/wp-content/uploads/2023/05/The-20-Strongest-Star-Wars-Characters-scaled.jpeg' alt='characters' className='img-fluid' style={{ width: '1300px', borderRadius: '20%', alignItems: 'center' }} />
                 <Carousel.Caption>
-                    <h3 style={{ color: 'white' }}>Characters</h3>
+                    <h2 className='carouselTitle my-3' style={{ color: 'white' }}>Characters</h2>
                     <Link to="/characters">
-                        <button className="btn btn-warning">Characters</button>
+                        <button className="btn btn-warning carouselButton">See Characters</button>
                     </Link>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img src='https://assetsio.reedpopcdn.com/Tatooine.jpg' alt='planets' style={{ width: '80vw', borderStyle: 'solid', borderWidth: '5px', borderColor: 'white', borderRadius: '10px' }} />
+                <img src='https://img-c.udemycdn.com/course/750x422/4679738_8ea3.jpg' alt='planets' className='img-fluid' style={{ width: '1300px', borderRadius: '20%', alignItems: 'center' }} />
                 <Carousel.Caption>
-                    <h3 style={{ color: 'white' }}>Planets</h3>
+                    <h2 className='carouselTitle my-3' style={{ color: 'white' }}>Planets</h2>
                     <Link to="/planets">
-                        <button className="btn btn-warning">Planets</button>
+                        <button className="btn btn-warning carouselButton">See Planets</button>
                     </Link>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img src='https://www.drivingline.com/s3/drivingline.prd/media/12935/dl-sw_10-01.jpg?quality=70&mode=pad&copymetadata=true&w=800' alt='vehicles' style={{ width: '80vw', borderStyle: 'solid', borderWidth: '5px', borderColor: 'white', borderRadius: '10px' }} />
+                <img src='https://i.imgur.com/V4dk8Sa.jpg' alt='vehicles' className='img-fluid' style={{ width: '1300px', borderRadius: '20%', alignItems: 'center' }} />
                 <Carousel.Caption>
-                    <h3 style={{ color: 'white' }}>Vehicles</h3>
+                    <h2 className='carouselTitle my-3' style={{ color: 'white' }}>Vehicles</h2>
                     <Link to="/vehicles">
-                        <button className="btn btn-warning">Vehicles</button>
+                        <button className="btn btn-warning carouselButton">See Vehicles</button>
                     </Link>
                 </Carousel.Caption>
             </Carousel.Item>
