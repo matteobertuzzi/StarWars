@@ -23,7 +23,7 @@ const PlanetDetails = () => {
   return (
     <div className='container'>
       <div className='row'>
-        <div className='col-md-5'>
+        <div className='col-md-5 d-flex justify-content-center'>
           <img src={'https://starwars-visualguide.com/assets/img/planets/' + id + '.jpg'} className="detailImg img-fluid" alt="Responsive image" onError={errorImg} />
         </div>
         <div className='col-md-7 details'>
