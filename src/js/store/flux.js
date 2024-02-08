@@ -10,13 +10,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			vehicles: [],
 			vehicle: {},
 			vehicleInfo: {},
+			films: [],
+			film: {},
+			filmInfo: {},
 			favoriteCharacters: [],
 			favoritePlanets: [],
 			favoriteVehicles: [],
+			favoriteFilms: [],
 			favoriteCount: 0,
 			peopleSearch: [],
 			planetSearch: [],
-			vehicleSearch: []
+			vehicleSearch: [],
+			relatedCharacters: [],
+			relatedCharactersInfo: [],
+			relatedPlanets: [],
+			relatedVehicles: []
 		},
 		actions: {
 
@@ -63,6 +71,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const results = data.results;
 				console.log(results);
 				setStore({ vehicles: results });
+			},
+
+			getFilms: async () => {
+
+				const baseUrl = 'https://www.swapi.tech/api/films/';
+				const response = await fetch(baseUrl);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data)
+				const results = data.result;
+				console.log(results);
+				setStore({ films: results });
 			},
 
 			getCharacterInfo: async (id) => {
@@ -113,6 +136,44 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ vehicleInfo: results.properties });
 			},
 
+			getFilmInfo: async (id) => {
+				const baseUrl = 'https://www.swapi.tech/api/films/';
+				const url = baseUrl + id;
+				const response = await fetch(url);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				};
+				const data = await response.json();
+				console.log(data);
+				const results = data.result;
+				console.log('infoDetail ', results);
+				setStore({ film: results });
+				const filmInfo = results.properties;
+				setStore({ filmInfo: filmInfo });
+				setStore({ relatedCharacters: filmInfo.characters }),
+					console.log(filmInfo.characters);
+				const relPeople = await getStore().relatedCharacters;
+				relPeople.forEach((url) => {
+					getActions().getRelatedCharacters(url)
+				})
+
+			},
+
+			getRelatedCharacters: async (url) => {
+				const response = await fetch(url);
+				if (!response.ok) {
+					console.log(response.status, response.statusText);
+					return response.statusText;
+				}
+				const data = await response.json();
+				const results = data.result;
+				const charArray = getStore().relatedCharactersInfo;
+				const resultArray = [...charArray, results]
+				setStore({ relatedCharactersInfo: resultArray });
+				console.log('success, here the results: ', resultArray);
+			},
+
 			setFavoriteChar: (newFav) => {
 				setStore({ favoriteCharacters: newFav });
 			},
@@ -135,6 +196,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			removeFavoriteVehicle: (newFav) => {
 				setStore({ favoriteVehicles: newFav })
+			},
+
+			setFavoriteFilms: (newFav) => {
+				setStore({ favoriteFilms: newFav });
+			},
+
+			removeFavoriteFilms: (newFav) => {
+				setStore({ favoriteFilms: newFav });
 			},
 
 
